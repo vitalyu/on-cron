@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'cmd/**'
+      - 'vendor/**'
+      - '.goreleaser.yml'
 
 jobs:
   release:

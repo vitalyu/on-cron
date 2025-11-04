@@ -7,7 +7,7 @@ A lightweight command-line tool to check if a cron expression is currently due t
 ### Quick Install (Linux/macOS)
 
 ```bash
-curl -fsSL https://github.com/vitalyu/on-cron/releases/latest/download/oncron_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/') -o /usr/local/bin/on-cron && chmod +x /usr/local/bin/on-cron
+curl -fsSL https://github.com/vitalyu/on-cron/releases/latest/download/oncron_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/') -o /usr/local/bin/on-cron && chmod +x /usr/local/bin/on-cron
 ```
 
 ### From Source
