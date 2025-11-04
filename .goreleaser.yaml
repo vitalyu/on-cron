@@ -1,0 +1,40 @@
+version: 2
+project_name: oncron
+
+before:
+  hooks:
+  - make tidy
+
+builds:
+- id: on-cron
+  main: ./cmd/on-cron
+  ldflags:
+  - -s -w -X main.version={{.Tag}}
+  - -s -w -X main.branch={{.Branch}}
+  - -s -w -X main.commit={{.ShortCommit}}
+  binary: on-cron
+  goos:
+  - linux
+  - darwin
+  - windows
+  goarch:
+  - amd64
+  - arm64
+  env:
+  - CGO_ENABLED=0
+
+checksum:
+  name_template: "checksums.txt"
+
+archives:
+  - format: binary
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+release:
+  name_template: "{{ .Version }}"
+  disable: false
+  github:
+    owner: vitalyu
+    name: on-cron
+  header: |
+    ## Release {{ .Tag }}
